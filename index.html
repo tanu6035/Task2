@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Festival Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("buyTicketsBtn").addEventListener("click", function() {
+                document.getElementById("tickets").scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Modal functionality
+            var modal = document.getElementById("filmModal");
+            var btn = document.getElementById("submitFilmBtn");
+            var span = document.getElementsByClassName("close")[0];
+            var loginForm = document.getElementById("loginForm");
+            var signUpForm = document.getElementById("signUpForm");
+            var switchToSignUp = document.getElementById("switchToSignUp");
+            var switchToLogin = document.getElementById("switchToLogin");
+
+            btn.onclick = function() {
+                modal.style.display = "block";
+                loginForm.style.display = "block";
+                signUpForm.style.display = "none";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            switchToSignUp.onclick = function() {
+                loginForm.style.display = "none";
+                signUpForm.style.display = "block";
+            }
+
+            switchToLogin.onclick = function() {
+                loginForm.style.display = "block";
+                signUpForm.style.display = "none";
+            }
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">Film Festival</div>
+    <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#lineup">Film Lineup</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+<header class="hero-section">
+    <h1>Experience the Magic of Cinema at the Annual Film Festival</h1>
+    <p>Join us for a celebration of the best in independent and international filmmaking.</p>
+    <button id="buyTicketsBtn">Buy Tickets</button>
+    <button id="submitFilmBtn">Submit Your Film</button>
+</header>
+<section id="overview" class="overview">
+    <h2>Festival Overview</h2>
+    <p>Welcome to the Annual Film Festival, a grand event showcasing the finest independent and international films. Dive into a world of cinematic brilliance with screenings, workshops, and networking opportunities.</p>
+    <div class="photo-gallery">
+        <h3>Some moments from previous film festivals</h3>
+        <div class="gallery">
+            <img src="photo1.webp" alt="Previous Festival 1">
+            <img src="photo2.webp" alt="Previous Festival 2">
+            <img src="photo3.webp" alt="Previous Festival 3">
+            <img src="photo4.webp" alt="Previous Festival 4">
+        </div>
+    </div>
+</section>
+<section id="lineup" class="film-lineup">
+    <h2>Film Lineup</h2>
+    <div class="film">
+        <img src="film1.avif" alt="Film 1">
+        <h3>Film 1: An Epic Journey</h3>
+        <p>Join us on an epic journey that transcends time and space, directed by renowned filmmaker...</p>
+    </div>
+    <div class="film">
+        <img src="film2.avif" alt="Film 2">
+        <h3>Film 2: Illuminating Documentary</h3>
+        <p>A documentary that sheds light on the unseen aspects of our world, capturing real stories and emotions...</p>
+    </div>
+    <div class="film">
+        <img src="film3.webp" alt="Film 3">
+        <h3>Film 3: Heartwarming Tale</h3>
+        <p>A heartwarming story that touches the soul, depicting the beautiful complexity of human relationships...</p>
+    </div>
+</section>
+<section id="schedule" class="schedule">
+    <h2>Event Schedule</h2>
+    <p>Join us from June 10th to June 15th for a series of exciting events:</p>
+    <ul>
+        <li><strong>June 10th:</strong> Opening Ceremony and Red Carpet Gala</li>
+        <li><strong>June 11th:</strong> Filmmaking Workshop with Industry Experts</li>
+        <li><strong>June 12th:</strong> Documentary Screenings and Q&A Sessions</li>
+        <li><strong>June 13th:</strong> International Film Showcase</li>
+        <li><strong>June 14th:</strong> Networking Event and Awards Night</li>
+        <li><strong>June 15th:</strong> Closing Ceremony and Audience Choice Award</li>
+    </ul>
+</section>
+<section id="tickets" class="tickets">
+    <h2>Ticket Information</h2>
+    <p>Secure your spot at the festival by purchasing tickets. Choose from various options that suit your needs:</p>
+    <ul>
+        <li>Single Screening Ticket: ₹1,200</li>
+        <li>Day Pass: ₹4000</li>
+        <li>All-Access Pass: ₹8000</li>
+    </ul>
+    <button>Buy Tickets Now</button>
+</section>
+<footer id="contact">
+    <p>Contact Information: info@filmfestival.com | (223) 456-7890</p>
+    <p>Follow us: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</footer>
+
+<!-- The Modal -->
+<div id="filmModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login or Sign Up</h2>
+        <form id="loginForm">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="#" id="switchToSignUp">Sign Up</a></p>
+        </form>
+        <form id="signUpForm" style="display:none;">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="email" placeholder="Email" required>
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
